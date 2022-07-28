@@ -8,7 +8,7 @@ public class BoardDto {
     private String title;
     private String content;
     private String writer;
-    private int view_cnt;
+    private int view_count;
     private int comment_cnt; //덧글 갯수
     private Date reg_date;
 
@@ -52,11 +52,11 @@ public class BoardDto {
     }
 
     public int getView_cnt() {
-        return view_cnt;
+        return view_count;
     }
 
-    public void setView_cnt(int view_cnt) {
-        this.view_cnt = view_cnt;
+    public void setView_cnt(int view_count) {
+        this.view_count = view_count;
     }
 
     public int getComment_cnt() {
@@ -82,7 +82,7 @@ public class BoardDto {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", writer='" + writer + '\'' +
-                ", view_cnt=" + view_cnt +
+                ", view_cnt=" + view_count +
                 ", comment_cnt=" + comment_cnt +
                 ", reg_date=" + reg_date +
                 '}';
