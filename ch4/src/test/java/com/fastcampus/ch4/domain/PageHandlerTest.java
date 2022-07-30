@@ -18,4 +18,10 @@ public class PageHandlerTest {
         assertTrue(ph.getBeginPage() ==11);
         assertTrue(ph.getEndPage() ==20);
     }
+    @Test
+    public void test3(){
+        PageHandler ph= new PageHandler(255, 10);
+        assertTrue(ph.getBeginPage() ==1);
+        assertTrue(ph.getEndPage() ==10);
+    }
 }

@@ -82,7 +82,7 @@ public class BoardDto {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", writer='" + writer + '\'' +
-                ", view_cnt=" + view_count +
+                ", view_count=" + view_count +
                 ", comment_cnt=" + comment_cnt +
                 ", reg_date=" + reg_date +
                 '}';
