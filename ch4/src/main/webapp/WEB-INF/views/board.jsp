@@ -38,6 +38,13 @@
         $('#listBtn').on("click", function () {
            location.href="<c:url value='/board/list'/>?page=${page}&pageSize=${pageSize}";
         });
+        $('#removeBtn').on("click", function () {
+            if(!confirm("정말로 삭제하시겠습니까?")) return;
+            let form=$('#form');
+            form.attr("action", "<c:url value='/board/remove'/>?page=${page}&pageSize=${pageSize}"); //action을 취하고
+            form.attr("method", "post"); //메서드는 post//
+            form.submit();
+        });
     });
 </script>
 </body>

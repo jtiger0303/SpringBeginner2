@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,6 +23,26 @@ public class BoardController {
     @Autowired
     BoardService boardService;
 
+    //게시물 삭제
+   @PostMapping("/remove")
+   public String remove(Integer bno, Integer page, Integer pageSize, Model m, HttpSession session, RedirectAttributes rattr){
+        String writer=(String)session.getAttribute("id");
+        try {
+            m.addAttribute("page", page);
+            m.addAttribute("pageSize", pageSize);
+            //모델에 담아주면 redirect할때 자동으로 붙음//
+            int rowCnt=boardService.remove(bno, writer);
+            if(rowCnt!=1){
+               throw new Exception("board remove error");
+            }
+            rattr.addFlashAttribute("msg", "Delete OK"); //RedirectAttributes에다 저장하면 1번만 나옴
+        } catch (Exception e) {
+            e.printStackTrace();
+            rattr.addFlashAttribute("msg", "Delete Error");
+        }
+
+        return "redirect:/board/list";
+    }
     @GetMapping("/read")
     public String read(Integer bno, Integer page, Integer pageSize, Model m){
         try {
