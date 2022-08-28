@@ -38,4 +38,5 @@ public interface BoardDao {
 
     List<BoardDto> searchSelectPage(SearchCondition sc) throws Exception;
 
+    int updateCommentCnt(Integer bno, int i);
 }
