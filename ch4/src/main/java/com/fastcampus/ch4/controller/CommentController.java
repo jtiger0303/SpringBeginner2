@@ -19,8 +19,10 @@ public class CommentController{
     //댓글을 수정하는 메서드
     @ResponseBody
     @PatchMapping("/comments/{cno}") // /ch4/comments?bno=1085 PATCH
-    public ResponseEntity<String> modify(@PathVariable Integer cno, @RequestBody CommentDto dto, Integer bno){
+    public ResponseEntity<String> modify(@PathVariable Integer cno, @RequestBody CommentDto dto, HttpSession session){
         //String commenter=(String)session.getAttribute("id");
+        String commenter="asdf";
+        dto.setCommenter(commenter);
         dto.setCno(cno);
         System.out.println("dto= "+dto);
 
